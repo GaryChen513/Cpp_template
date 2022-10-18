@@ -1,7 +1,3 @@
-//
-// Created by Galli on 17/10/2022.
-//
-
 /*
  * str:         ... | .
  *                ^   ^
@@ -10,6 +6,27 @@
  * pattern:     ... | .
  *                ^   ^
  *                j   j+1
+ *
+ *  ne[j] array stores a previous index where a suffix ending with character pattern[K], and this suffix can match with a prefix
+ *  next[j] 存的是在 pattern 里面前一个以pattern[K]为末尾的最长的后缀，且满足 后缀 == 前缀
+ *
+ *  str[i - a + 1 : i - 1] == pattern[nex[j] : j] where a = j - ne[j]
+ *
+ *  For example:
+ *  pattern  **********|a*
+ *           ---
+ *                    ^
+ *                    i
+ *  pattern    ********|b*
+ *                  ---
+ *                    ^
+ *                    j
+ *  pattern        ****|**
+ *                  ---
+ *                    ^
+ *                   ne[j]
+ *
+ *
  */
 
 #include <iostream>
